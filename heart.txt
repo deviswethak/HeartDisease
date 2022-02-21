@@ -99,7 +99,6 @@ metricName="accuracy")
 dtc_acc = acc_evaluator.evaluate(dtc_predictions) 
 print('A Decision Tree algorithm had an accuracy of: {0:2.2f}%'.format(dtc_acc*100)) 
 # now predicting the labels for test data 
-39 | P a g e
 test_pred = model.transform(test_f) 
 test_selected = test_pred.select("id", "features", "prediction","probability") 
 test_selected.limit(5).toPandas()
