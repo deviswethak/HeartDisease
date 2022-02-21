@@ -21,7 +21,6 @@ train.groupBy('stroke').count().show()
 train.createOrReplaceTempView('table') 
 # sql query to find the number of people in specific work_type who have had stroke and not 
 spark.sql("SELECT work_type, COUNT(work_type) as work_type_count FROM table WHERE 
-36 | P a g e
 stroke == 1 GROUP BY work_type ORDER BY COUNT(work_type) DESC").show() 
 spark.sql("SELECT work_type, COUNT(work_type) as work_type_count FROM table WHERE 
 stroke == 0 GROUP BY work_type ORDER BY COUNT(work_type) DESC").show() 
@@ -49,7 +48,6 @@ train_f = train_f.na.fill(mean_bmi,['bmi'])
 test_f = test_f.na.fill(mean_bmi,['bmi']) 
 train_f.describe().show() 
 test_f.describe().show() 
-37 | P a g e
 #Now there is no missing values, Lets work on categorical columns now...
 #StringIndexer -> OneHotEncoder -> VectorAssemble
 # indexing all categorical columns in the dataset 
@@ -76,7 +74,6 @@ assembler = VectorAssembler(inputCols=['genderVec',
  'heart_disease', 
  'ever_marriedVec', 
  'work_typeVec', 
-38 | P a g e
  'Residence_typeVec', 
  'avg_glucose_level', 
  'bmi', 
